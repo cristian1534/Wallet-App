@@ -43,7 +43,10 @@ def home():
                 
 
             if option == "3":
-                print("Thank you for using MACH BANKING APP")
+                clear_console()
+                print("""
+                        Thank you for using MACH BANKING APP
+                        """)
                 break
 
         except Exception as e:

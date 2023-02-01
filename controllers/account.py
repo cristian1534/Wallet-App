@@ -1,5 +1,7 @@
 from database.db import Client
 from helpers.clear_console import clear_console
+from decorators.transactions import transactions
+
 
 
 class Account:
@@ -19,6 +21,7 @@ class Account:
         except Exception as e:
             print(e)
 
+    @transactions
     def deposit_account(self, Amount, Password):
         clear_console()
         try:
@@ -73,3 +76,10 @@ class Account:
 
         except Exception as e:
             print(e)
+
+
+    def print_receive(self):
+        clear_console()
+        f = open("Transactions.txt")
+        print(f.read())
+        f.close()

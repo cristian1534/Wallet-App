@@ -5,7 +5,7 @@ def loader(fn):
             fn(*args)
 
             print("""
-    --------->  LOADING...
+////////////////////////////// --> Closing session...
                 """)
         except Exception as e:
             print(e)
