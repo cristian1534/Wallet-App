@@ -1,7 +1,7 @@
 from database.db import Client
 from helpers.clear_console import clear_console
 from decorators.transactions import transactions
-
+from observer.observerAccount import Observer, Observer_Account
 
 
 class Account:
@@ -28,20 +28,32 @@ class Account:
             self.Amount = Amount
             self.Password = Password
             self.Cash = []
+            self.Username = None
 
             current_account = Client.select().where(Client.Password == self.Password)
             for current_amount in current_account:
                 self.Cash.append(current_amount.Account)
+                self.Username = current_amount.Username
 
             self.Cash.append(self.Amount)
-
             self.updated_amount = sum(self.Cash)
 
             self.updated_account = Client.update(Account=self.updated_amount).where(
                 Client.Password == self.Password).execute()
 
             if self.updated_account:
-                print(f'DEPOSITED SUCCESSFULLY: {self.Amount}')
+
+                """
+                    observer_account notifies when state of Account chances.
+                """
+
+                observer = Observer(self.Username)
+                observer_account = Observer_Account()
+                observer_account.created_transaction(observer)
+                observer_account.dispatch_message(
+                    "Your account has been UPDATED.")
+
+                print(f'DEPOSITED SUCCESSFULLY.')
 
             else:
                 print("COULD NOT GET DEPOSITED.")
@@ -76,7 +88,6 @@ class Account:
 
         except Exception as e:
             print(e)
-
 
     def print_receive(self):
         clear_console()

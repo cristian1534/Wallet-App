@@ -2,13 +2,11 @@ from controllers.account import Account
 from helpers.clear_console import clear_console
 from decorators.loader import loader
 
-
 account = Account()
 
 @loader
 def menu():
     global Amount
-
     while True:
         try:
             print('''
