@@ -1,0 +1,41 @@
+Trabajo Final Python UTN
+
+Alumno: 
+    - Cristian Machuca
+
+Proyecto: 
+    - Banking APP
+
+Descripcion:
+    - Simulacion de una Wallet donde se ingresa con un Registro de Usuario, luego se 
+      accede a un login. Contiene un menu de opciones para deposito, transferencia, consulta y emision de recibo.
+      Se utilzo una BD Peewee, observador, decorador y sockets para correr el servidor.
+      Documentacion presentada en /docs/build/html/index.html. MVC y POO.
+      Genera registro .txt de ultima transaccion y Registro de cliente.
+
+
+RUN APP:
+
+    // PARA CORRER SOCKET DEL LADO SERVIDOR Y QUUEDAR EN MODO LISTENING:
+    - /Banking_APP/socket_connection
+        python3 server.py
+
+    ### EJEMPLO DE PRINT EN CONSOLA: 
+        CONNECTION ESTABLISHED FROM ('192.168.31.254', 65286) 
+
+    // (ABRIENDO NUEVA TERMINAL) PARA CORRER SOCKET LADO CLIENTE Y ACCEDER A LA APP:
+
+    - /Banking_APP
+        python3 main.py
+
+     ### EJEMPLO DE PRINT EN CONSOLA:
+
+         'WELCOME TO MACH BANKING APP'
+Connected to DataBase.
+
+              1 - Register
+              2 - Log In
+              3 - Exit
+
+Select OPTION:
+

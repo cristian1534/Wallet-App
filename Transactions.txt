@@ -1,2 +1,0 @@
-Details of last Transaction: 
-- Ammount handled: 500, Date of operation: 2023-02-01 13:45:31.602345
